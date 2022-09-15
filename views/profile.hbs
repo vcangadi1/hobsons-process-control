@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <title>Hobsons Brewery - Award-winning Shropshire Beers</title>
+</head>
+<body>
+    <nav>
+        <a href="/"><img class="logo ls-is-cached lazyloaded" src="https://www.hobsons-brewery.co.uk/wp-content/themes/hobsons/assets/images/svg/header-logo.svg" alt="Hobsons Brewery" data-src="https://www.hobsons-brewery.co.uk/wp-content/themes/hobsons/assets/images/svg/header-logo.svg" decoding="async"><noscript><img class="logo" src="https://www.hobsons-brewery.co.uk/wp-content/themes/hobsons/assets/images/svg/header-logo.svg" alt="Hobsons Brewery" data-eio="l"></noscript></a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </nav>
+    <div class="container mt-4">
+        {{#if message}}
+            <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
+                 Welcome <strong>{{user.name}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{/if}}
+        <div class="row justify-content-center">
+            <div class="col justify-content-center">
+                <form action="/auth/profile" method="post">
+                    <div class="card">
+                        <div class="card-header justify-content-center">
+                            <strong>Brewing and Cleaning Record</strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="beer">Beer</label>
+                                    <input type="text" class="form-control" id="beer" name="beer">
+                                </div>
+                                <div class="col">
+                                    <label for="gyle">Gyle</label>
+                                    <input type="text" class="form-control" id="gyle" name="gyle">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="date">Date</label>
+                                    <input type="date" class="form-control" id="date" name="date">
+                                </div>
+                                <div class="col">
+                                    <label for="fv">Fv</label>
+                                    <input type="text" class="form-control" id="fv" name="fv">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="mashIn">Mash In</label>
+                                    <input type="text" class="form-control" id="mashIn" name="mashIn">
+                                </div>
+                                <div class="col">
+                                    <label for="copperUp">Copper Up</label>
+                                    <input type="text" class="form-control" id="copperUp" name="copperUp">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="mashTemp">Mash Temp</label>
+                                    <input type="text" class="form-control" id="mashTemp" name="mashTemp">
+                                </div>
+                                <div class="col">
+                                    <label for="gravity_after_boil">Gravity After Boil</label>
+                                    <input type="text" class="form-control" id="gravity_after_boil" name="gravity_after_boil">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="setTaps">Set Taps</label>
+                                    <input type="text" class="form-control" id="setTaps" name="setTaps">
+                                </div>
+                                <div class="col">
+                                    <label for="dip_after_boil">Dip After Boil</label>
+                                    <input type="text" class="form-control" id="dip_after_boil" name="dip_after_boil">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="first_runnings">1st runnings</label>
+                                    <input type="text" class="form-control" id="first_runnings" name="first_runnings">
+                                </div>
+                                <div class="col">
+                                    <label for="dip_in_liquor">Dip in Liquor</label>
+                                    <input type="text" class="form-control" id="dip_in_liquor" name="dip_in_liquor">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="last_runnings">Last runnings</label>
+                                    <input type="text" class="form-control" id="last_runnings" name="last_runnings">
+                                </div>
+                                <div class="col">
+                                    <label for="wort_pH">Wort pH</label>
+                                    <input type="text" class="form-control" id="wort_pH" name="wort_pH">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="collection_dip">Collection dip</label>
+                                    <input type="text" class="form-control" id="collection_dip" name="collection_dip">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <div class="col">
+                                        <label for="pre_rack_taste">Pre Rack Taste</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="checkbox" class="form-check-input" id="pre_rack_taste" name="pre_rack_taste">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="issue_no">Issue No </label>
+                                    <input type="text" class="form-control" id="issue_no" name="issue_no">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
