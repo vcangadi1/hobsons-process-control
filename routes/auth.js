@@ -13,6 +13,12 @@ router.post('/profile', validateToken, authController.profile);
 // Register Page
 router.post('/register', authController.register);
 
+// add Fermentation Data
+router.post('/addFermentationData', authController.addFermentationData);
+
+// Save data
+router.post('/save', authController.save);
+
 module.exports = router;
 
 function validateToken (req, res, next) {
