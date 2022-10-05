@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const { insert } = require('./SQL_Insert');
 
 const db = mysql.createConnection({
     host: process.env.HOST,
@@ -90,21 +91,5 @@ exports.save = (req, res) => {
 
 exports.profile = (req, res) => {
     console.log(req.body);
-    const { beer, gyle, date, fv } = req.body;
-    const { mashIn, copperUp, mashTemp, gravity_after_boil, setTaps, dip_after_boil, first_runnings, dip_in_liquor, last_runnings, wort_pH, collection_dip } = req.body;
-    const { issue_no, action_mashing_liquor, action_glass_audit, action_racking_tank, action_fermenter, action_auger_grain_chute, action_trailer, action_premasher, action_mash_tun_plates, action_copper, action_pipes_paraflow } = req.body;
-    const { datetimeFermentation, hoursFermentation, tempFermentation, gravityFermentation, tasteFermentation } = req.body;
-
-    db.query(`INSERT INTO brew (beer, gyle, date, fv) VALUES ('${beer}', '${gyle}', '${date}', '${fv}')`, (err, results) => {
-        if (err) {
-            throw err;
-        }
-        return res.render('../views/register', {
-            message: 'Registration successful',
-            color: 'success'
-        });
-    });
-
-    //res.render('../views/login');
+    insert(req, res);
 }
-

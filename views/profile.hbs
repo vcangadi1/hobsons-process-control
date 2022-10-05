@@ -32,22 +32,26 @@
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col">
+                                    <label for="brewer">Brewer</label>
+                                    <input type="text" class="form-control" id="brewer" name="brewer">
+                                </div>
+                                <div class="col">
                                     <label for="beer">Beer</label>
                                     <input type="text" class="form-control" id="beer" name="beer">
                                 </div>
-                                <div class="col">
-                                    <label for="gyle">Gyle</label>
-                                    <input type="text" class="form-control" id="gyle" name="gyle">
-                                </div>
                             </div>
                             <div class="row mb-2">
+                                <div class="col">
+                                    <label for="gyle">Gyle</label>
+                                    <input type="number" class="form-control" id="gyle" name="gyle">
+                                </div>
                                 <div class="col">
                                     <label for="date">Date</label>
                                     <input type="datetime-local" class="form-control" id="date" name="date">
                                 </div>
                                 <div class="col">
                                     <label for="fv">Fv</label>
-                                    <input type="text" class="form-control" id="fv" name="fv">
+                                    <input type="number" class="form-control" id="fv" name="fv">
                                 </div>
                             </div>
                             <button type="button" formaction="/auth/save" class="btn btn-primary mt-2">Save</button>
@@ -61,57 +65,57 @@
                             <div class="row mb-2">
                                 <div class="col">
                                     <label for="mashIn">Mash In</label>
-                                    <input type="text" class="form-control" id="mashIn" name="mashIn">
+                                    <input type="time" class="form-control" id="mashIn" name="mashIn">
                                 </div>
                                 <div class="col">
                                     <label for="copperUp">Copper Up</label>
-                                    <input type="text" class="form-control" id="copperUp" name="copperUp">
+                                    <input type="time" class="form-control" id="copperUp" name="copperUp">
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col">
-                                    <label for="mashTemp">Mash Temp</label>
-                                    <input type="text" class="form-control" id="mashTemp" name="mashTemp">
+                                    <label for="mashTemp">Mash Temp in &#8451;</label>
+                                    <input type="number" step=".01" class="form-control" id="mashTemp" name="mashTemp">
                                 </div>
                                 <div class="col">
                                     <label for="gravity_after_boil">Gravity After Boil</label>
-                                    <input type="text" class="form-control" id="gravity_after_boil" name="gravity_after_boil">
+                                    <input type="number" step=".01" class="form-control" id="gravity_after_boil" name="gravity_after_boil">
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col">
                                     <label for="setTaps">Set Taps</label>
-                                    <input type="text" class="form-control" id="setTaps" name="setTaps">
+                                    <input type="time" class="form-control" id="setTaps" name="setTaps">
                                 </div>
                                 <div class="col">
-                                    <label for="dip_after_boil">Dip After Boil</label>
-                                    <input type="text" class="form-control" id="dip_after_boil" name="dip_after_boil">
+                                    <label for="dip_after_boil">Dip After Boil in cm</label>
+                                    <input type="number" step=".01" class="form-control" id="dip_after_boil" name="dip_after_boil">
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col">
                                     <label for="first_runnings">1st runnings</label>
-                                    <input type="text" class="form-control" id="first_runnings" name="first_runnings">
+                                    <input type="number" class="form-control" id="first_runnings" name="first_runnings">
                                 </div>
                                 <div class="col">
-                                    <label for="dip_in_liquor">Dip in Liquor</label>
-                                    <input type="text" class="form-control" id="dip_in_liquor" name="dip_in_liquor">
+                                    <label for="dip_in_liquor">Dip in Liquor in cm</label>
+                                    <input type="number" step=".01" class="form-control" id="dip_in_liquor" name="dip_in_liquor">
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col">
                                     <label for="last_runnings">Last runnings</label>
-                                    <input type="text" class="form-control" id="last_runnings" name="last_runnings">
+                                    <input type="number" class="form-control" id="last_runnings" name="last_runnings">
                                 </div>
                                 <div class="col">
                                     <label for="wort_pH">Wort pH</label>
-                                    <input type="number" class="form-control" id="wort_pH" name="wort_pH">
+                                    <input type="number" step=".01" class="form-control" id="wort_pH" name="wort_pH">
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col">
-                                    <label for="collection_dip">Collection dip</label>
-                                    <input type="text" class="form-control" id="collection_dip" name="collection_dip">
+                                    <label for="collection_dip">Collection dip in cm</label>
+                                    <input type="number" class="form-control" id="collection_dip" name="collection_dip">
                                 </div>
                             </div>
                             <button type="button" formaction="/auth/save" class="btn btn-primary mt-2">Save</button>
@@ -120,12 +124,12 @@
                     <div class="card mt-4">
                         <div class="card-header justify-content-center">
                             <strong>Pre Rack Taste</strong>
-                        </div>                        
+                        </div>
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col">
                                     <label for="issue_no">Issue No </label>
-                                    <input type="text" class="form-control" id="issue_no" name="issue_no">
+                                    <input type="number" class="form-control" id="issue_no" name="issue_no">
                                 </div> 
                             </div>
                             <div class="row mb-2">
@@ -350,7 +354,7 @@
                                                     </div>
                                                     <div class="col">
                                                         <label for="hoursFermentation">Hours</label>
-                                                        <input type="number" class="form-control" id="hoursFermentation" name="hoursFermentation">
+                                                        <input type="number" step=".01" class="form-control" id="hoursFermentation" name="hoursFermentation">
                                                     </div>
                                                 </div>
                                             </div>
@@ -358,11 +362,11 @@
                                                 <div class="row mb-2">
                                                     <div class="col">
                                                         <label for="tempFermentation">Temp in &#8451;</label>
-                                                        <input type="number" class="form-control" id="tempFermentation" name="tempFermentation">
+                                                        <input type="number" step=".01" class="form-control" id="tempFermentation" name="tempFermentation">
                                                     </div>
                                                     <div class="col">
                                                         <label for="gravityFermentation">Gravity</label>
-                                                        <input type="number" class="form-control" id="gravityFermentation" name="gravityFermentation">
+                                                        <input type="number" step=".01" class="form-control" id="gravityFermentation" name="gravityFermentation">
                                                     </div>
                                                     <div class="col">
                                                         <label for="tasteFermentation">Taste</label>

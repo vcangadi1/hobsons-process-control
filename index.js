@@ -4,13 +4,11 @@ const mysql = require('mysql');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
-
 dotenv.config({ path: path.join(__dirname, '/.env') });
 const port = process.env.PORT;
 const ip = process.env.IP;
 
 const app = express();
-
 
 const db = mysql.createConnection({
     host: process.env.HOST,
