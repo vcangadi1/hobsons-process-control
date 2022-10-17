@@ -31,27 +31,23 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-2">
-                                <div class="col" style="display: none;">
-                                    <label for="brewer">Brewer</label>
-                                    <input type="text" class="form-control" value="{{user.name}}" id="brewer" name="brewer">
-                                </div>
                                 <div class="col">
                                     <label for="beer">Beer</label>
                                     <input type="text" class="form-control" value="{{data.beer}}" id="beer" name="beer">
                                 </div>
                                 <div class="col">
                                     <label for="gyle">Gyle</label>
-                                    <input type="number" value="{{data.gyle}}" class="form-control" id="gyle" name="gyle">
+                                    <input type="text" value="{{data.gyle}}" class="form-control" id="gyle" name="gyle">
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col">
-                                    <label for="date">Date</label>
-                                    <input type="datetime-local" class="form-control" id="date" name="date">
+                                    <label for="brewer">Brewer</label>
+                                    <input type="text" class="form-control" value="{{user.name}}" id="brewer" name="brewer">
                                 </div>
                                 <div class="col">
                                     <label for="fv">Fv</label>
-                                    <input type="number" value="{{data.Fv}}" class="form-control" id="fv" name="fv">
+                                    <input type="text" value="{{data.fv}}" class="form-control" id="fv" name="fv">
                                 </div>
                             </div>
                         </div>
@@ -80,11 +76,11 @@
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="mashTemp">Mash Temp in &#8451;</label>
-                                                    <input type="number" value="{{data.mashTemp}}" step=".01" class="form-control" id="mashTemp" name="mashTemp">
+                                                    <input type="text" value="{{data.mashTemp}}" class="form-control" id="mashTemp" name="mashTemp">
                                                 </div>
                                                 <div class="col">
                                                     <label for="gravity_after_boil">Gravity After Boil</label>
-                                                    <input type="number" value="{{data.gravity_after_boil}}" step=".01" class="form-control" id="gravity_after_boil" name="gravity_after_boil">
+                                                    <input type="text" value="{{data.gravity_after_boil}}" class="form-control" id="gravity_after_boil" name="gravity_after_boil">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -94,33 +90,33 @@
                                                 </div>
                                                 <div class="col">
                                                     <label for="dip_after_boil">Dip After Boil in cm</label>
-                                                    <input type="number" value="{{data.dip_after_boil}}" step=".01" class="form-control" id="dip_after_boil" name="dip_after_boil">
+                                                    <input type="text" value="{{data.dip_after_boil}}" class="form-control" id="dip_after_boil" name="dip_after_boil">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="first_runnings">1st runnings</label>
-                                                    <input type="number" value="{{data.first_runnings}}" class="form-control" id="first_runnings" name="first_runnings">
+                                                    <input type="text" value="{{data.first_runnings}}" class="form-control" id="first_runnings" name="first_runnings">
                                                 </div>
                                                 <div class="col">
                                                     <label for="dip_in_liquor">Dip in Liquor in cm</label>
-                                                    <input type="number" value="{{data.dip_in_liquor}}" step=".01" class="form-control" id="dip_in_liquor" name="dip_in_liquor">
+                                                    <input type="text" value="{{data.dip_in_liquor}}" class="form-control" id="dip_in_liquor" name="dip_in_liquor">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="last_runnings">Last runnings</label>
-                                                    <input type="number" value="{{data.last_runnings}}" class="form-control" id="last_runnings" name="last_runnings">
+                                                    <input type="text" value="{{data.last_runnings}}" class="form-control" id="last_runnings" name="last_runnings">
                                                 </div>
                                                 <div class="col">
                                                     <label for="wort_pH">Wort pH</label>
-                                                    <input type="number" value="{{data.wort_pH}}" step=".01" class="form-control" id="wort_pH" name="wort_pH">
+                                                    <input type="text" value="{{data.wort_pH}}" class="form-control" id="wort_pH" name="wort_pH">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="collection_dip">Collection dip in cm</label>
-                                                    <input type="number" value="{{data.collection_dip}}" class="form-control" id="collection_dip" name="collection_dip">
+                                                    <input type="text" value="{{data.collection_dip}}" class="form-control" id="collection_dip" name="collection_dip">
                                                 </div>
                                             </div>
                                         </div>
@@ -141,7 +137,7 @@
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="issue_no">Issue No </label>
-                                                    <input type="number" value="{{data.issue_no}}" class="form-control" id="issue_no" name="issue_no">
+                                                    <input type="text" value="{{data.issue_no}}" class="form-control" id="issue_no" name="issue_no">
                                                 </div> 
                                             </div>
                                             <div class="row mb-2">
@@ -375,41 +371,24 @@
                                     <div class="card mt-2">
                                         <div class="card-body">
                                             <div class="row mb-2">
-                                                <div class="col-2 d-flex">
-                                                    {{!-- <a href="/auth/addFermentationData" class="btn btn-primary" >+ add</a> --}}
-                                                    <button type="button" class="btn btn-primary" id="addFermentationData" formaction="/auth/addFermentationData" formmethod="post" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        + add
-                                                    </button>
+                                                <div class="col">
+                                                    <label for="hoursFermentation">Hours</label>
+                                                    <input type="text" class="form-control" value="{{data.hoursFermentation}}" id="hoursFermentation" name="hoursFermentation">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="tempFermentation">Temp in &#8451;</label>
+                                                    <input type="text" class="form-control" value="{{data.tempFermentation}}" id="tempFermentation" name="tempFermentation">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
-                                                <table class="table" name="tabledata" id="tabledata">
-                                                    <thead class="thread-dark">
-                                                        <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Date time</th>
-                                                        <th scope="col">Hours</th>
-                                                        <th scope="col">Temp in &#8451;</th>
-                                                        <th scope="col">Gravity</th>
-                                                        <th scope="col">Taste</th>
-                                                        <th scope="col" class="text-end">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>23/09/2022 09:15</td>
-                                                            <td>0</td>
-                                                            <td>20</td>
-                                                            <td>1038.0</td>
-                                                            <td>Good</td>
-                                                            <td class="text-end">
-                                                                <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i></a>
-                                                                <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-trash"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <div class="col">
+                                                    <label for="gravityFermentation">Gravity</label>
+                                                    <input type="text" class="form-control" value="{{data.gravityFermentation}}" id="gravityFermentation" name="gravityFermentation">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="tasteFermentation">Taste</label>
+                                                    <input type="text" class="form-control" value="{{data.tasteFermentation}}" id="tasteFermentation" name="tasteFermentation">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -419,55 +398,6 @@
                     </div>
                     <div class="text-center mb-2">
                         <button type="submit" class="btn btn-primary mt-4">Submit</button>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Add Fermentation Record</strong></h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="/auth/addtotable" method="post">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row mb-2">
-                                                    <div class="col">
-                                                        <label for="datetimeFermentation">Date</label>
-                                                        <input type="datetime-local" class="form-control" id="datetimeFermentation" name="datetimeFermentation">
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="hoursFermentation">Hours</label>
-                                                        <input type="number" step=".01" class="form-control" value="{{data.hoursFermentation}}" id="hoursFermentation" name="hoursFermentation">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="row mb-2">
-                                                    <div class="col">
-                                                        <label for="tempFermentation">Temp in &#8451;</label>
-                                                        <input type="number" step=".01" class="form-control" value="{{data.tempFermentation}}" id="tempFermentation" name="tempFermentation">
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="gravityFermentation">Gravity</label>
-                                                        <input type="number" step=".01" class="form-control" value="{{data.gravityFermentation}}" id="gravityFermentation" name="gravityFermentation">
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="tasteFermentation">Taste</label>
-                                                        <input type="text" class="form-control" id="tasteFermentation" name="tasteFermentation">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" formaction="/auth/save" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </form>
             </div>

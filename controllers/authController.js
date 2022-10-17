@@ -117,17 +117,9 @@ exports.profile = (req, res) => {
         });
     }
 
-    if (req.body.date === '') {
+    if (req.body.fv === '' || req.body.fv === 0) {
         return res.render('../views/profile', {
-            message: 'Please input a valid date',
-            data,
-            color: 'danger'
-        });
-    }
-
-    if (req.body.Fv === '' || req.body.Fv === 0) {
-        return res.render('../views/profile', {
-            message: 'Please input a valid date',
+            message: 'Please input a valid Fv',
             data,
             color: 'danger'
         });
