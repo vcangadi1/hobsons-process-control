@@ -13,13 +13,30 @@ exports.insert = (req, res) => {
     const { issue_no, action_mashing_liquor, action_glass_audit, action_racking_tank, action_fermenter, action_auger_grain_chute, action_trailer, action_premasher, action_mash_tun_plates, action_copper, action_pipes_paraflow } = req.body;
     const { datetimeFermentation, hoursFermentation, tempFermentation, gravityFermentation, tasteFermentation } = req.body;
 
-    db.query(`INSERT INTO brew (brewer, beer, gyle, date, fv, mashIn, copperUp, mashTemp, gravity_after_boil, setTaps, dip_after_boil, first_runnings, dip_in_liquor, last_runnings, wort_pH, collection_dip, issue_no, action_mashing_liquor, action_glass_audit, action_racking_tank, action_fermenter, action_auger_grain_chute, action_trailer, action_premasher, action_mash_tun_plates, action_copper, action_pipes_paraflow, datetimeFermentation, hoursFermentation, tempFermentation, gravityFermentation, tasteFermentation ) VALUES ( '${brewer}', '${beer}', '${gyle}', '${date}', '${fv}', '${mashIn}', '${copperUp}', '${mashTemp}', '${gravity_after_boil}', '${setTaps}', '${dip_after_boil}', '${first_runnings}', '${dip_in_liquor}', '${last_runnings}', '${wort_pH}', '${collection_dip}', '${issue_no}', '${action_mashing_liquor}', '${action_glass_audit}', '${action_racking_tank}', '${action_fermenter}', '${action_auger_grain_chute}', '${action_trailer}', '${action_premasher}', '${action_mash_tun_plates}', '${action_copper}', '${action_pipes_paraflow}', '${datetimeFermentation}', '${hoursFermentation}', '${tempFermentation}', '${gravityFermentation}', '${tasteFermentation}')`, (err, results) => {
+    // Check if gyle already exists
+    db.query(`SELECT gyle FROM brew WHERE gyle = '${gyle}'`, (err, results) => {
         if (err) {
             throw err;
         }
-        return res.render('../views/register', {
-            message: 'Registration successful',
-            color: 'success'
+
+        // Message variables
+        let message = '';
+
+        // If gyle exists, return error
+        if (results.length > 0) {
+            message += 'Gyle already exists. ';
+        }
+        
+        // Insert into brew table
+        db.query(`INSERT INTO brew (brewer, beer, gyle, date, fv, mashIn, copperUp, mashTemp, gravity_after_boil, setTaps, dip_after_boil, first_runnings, dip_in_liquor, last_runnings, wort_pH, collection_dip, issue_no, action_mashing_liquor, action_glass_audit, action_racking_tank, action_fermenter, action_auger_grain_chute, action_trailer, action_premasher, action_mash_tun_plates, action_copper, action_pipes_paraflow, datetimeFermentation, hoursFermentation, tempFermentation, gravityFermentation, tasteFermentation ) VALUES ( '${brewer}', '${beer}', '${gyle}', '${date}', '${fv}', '${mashIn}', '${copperUp}', '${mashTemp}', '${gravity_after_boil}', '${setTaps}', '${dip_after_boil}', '${first_runnings}', '${dip_in_liquor}', '${last_runnings}', '${wort_pH}', '${collection_dip}', '${issue_no}', '${action_mashing_liquor}', '${action_glass_audit}', '${action_racking_tank}', '${action_fermenter}', '${action_auger_grain_chute}', '${action_trailer}', '${action_premasher}', '${action_mash_tun_plates}', '${action_copper}', '${action_pipes_paraflow}', '${datetimeFermentation}', '${hoursFermentation}', '${tempFermentation}', '${gravityFermentation}', '${tasteFermentation}')`, (err, results) => {
+            if (err) {
+                throw err;
+            }
+            message += 'Brew added successfully';
+            return res.render('../views/register', {
+                message,
+                color: 'warning'
+            });
         });
     });
 }

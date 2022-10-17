@@ -62,7 +62,7 @@ exports.login = (req, res) => {
                 const token = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET);
                 res.cookie('jwt', token, { maxAge: 60 * 60 * 24 * 7 * 1000 });
                 res.render('../views/profile', {
-                    message: 'Login successful',
+                    message: `Welcome ${user.name}`,
                     user,
                     color: 'success'
                 });
@@ -90,6 +90,48 @@ exports.save = (req, res) => {
 }
 
 exports.profile = (req, res) => {
+    const data = req.body;
     console.log(req.body);
+
+    if (req.body.brewer === '') {
+        return res.render('../views/login', {
+            message: 'Please login again',
+            data,
+            color: 'warning'
+        });
+    }
+
+    if (req.body.beer === '') {
+        return res.render('../views/profile', {
+            message: 'Please input a valid beer type',
+            data,
+            color: 'danger'
+        });
+    }
+
+    if (req.body.gyle === '' || req.body.gyle == 0) {
+        return res.render('../views/profile', {
+            message: 'Please input a valid gyle number',
+            data,
+            color: 'danger'
+        });
+    }
+
+    if (req.body.date === '') {
+        return res.render('../views/profile', {
+            message: 'Please input a valid date',
+            data,
+            color: 'danger'
+        });
+    }
+
+    if (req.body.Fv === '' || req.body.Fv === 0) {
+        return res.render('../views/profile', {
+            message: 'Please input a valid date',
+            data,
+            color: 'danger'
+        });
+    }
+
     insert(req, res);
 }
