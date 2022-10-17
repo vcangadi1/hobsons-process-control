@@ -22,6 +22,18 @@ router.post('/find', validateToken, authController.find);
 // Add
 router.get('/add', validateToken, authController.add);
 
+// Edit
+router.get('/edit/:id', validateToken, authController.edit);
+
+// Update
+router.post('/edit/:id', validateToken, authController.update);
+
+// Delete
+router.get('/delete/:id', validateToken, authController.delete);
+
+// View
+router.get('/view/:id', validateToken, authController.view);
+
 module.exports = router;
 
 function validateToken (req, res, next) {

@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const { insert } = require('./SQL_Insert');
+const crud = require('./MySQL_CRUD');
 
 const db = mysql.createConnection({
     host: process.env.HOST,
@@ -61,18 +61,7 @@ exports.login = (req, res) => {
             if (isPasswordValid) {
                 const token = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET);
                 res.cookie('jwt', token, { maxAge: 60 * 60 * 24 * 7 * 1000 });
-
-                db.query(`SELECT id, date, brewer, gyle, beer, fv FROM brew order by datetimeFermentation desc, date desc limit 10;`, (err, data) => {
-                    if (err) {
-                        throw err;
-                    }
-
-                    res.render('../views/tableData', {
-                        message: 'Data retrieved successfully',
-                        data,
-                        color: 'success'
-                    });
-                });
+                crud.read(req, res);
             } else {
                 res.render('../views/login', {
                     message: 'Invalid password',
@@ -89,44 +78,36 @@ exports.login = (req, res) => {
 }
 
 exports.tableData = (req, res) => {
-    db.query(`SELECT id, date, brewer, gyle, beer, fv FROM brew order by datetimeFermentation desc, date desc limit 10;`, (err, data) => {
-        if (err) {
-            throw err;
-        }
-
-        res.render('../views/tableData', {
-            message: 'Data retrieved successfully',
-            data,
-            color: 'success'
-        });
-    });
+    crud.read(req, res);
 }
 
 exports.find = (req, res) => {
-    const { search } = req.body;
-
-    db.query(`SELECT * FROM brew WHERE id LIKE '%${search}%' OR date LIKE '%${search}%' OR brewer LIKE '%${search}%' OR gyle LIKE '%${search}%' OR beer LIKE '%${search}%' OR fv LIKE '%${search}%' order by datetimeFermentation desc, date desc LIMIT 10`, (err, data) => {
-        if (err) {
-            throw err;
-        }
-
-        if (data.length > 0) {
-            res.render('../views/tableData', {
-                message: 'Data retrieved successfully',
-                data,
-                color: 'success'
-            });
-        } else {
-            res.render('../views/tableData', {
-                message: 'Data not found',
-                color: 'danger'
-            });
-        }
-    });
+    crud.read(req, res);
 }
 
 exports.add = (req, res) => {
-    res.render('../views/profile', {});
+    res.render('../views/profile');
+}
+
+exports.edit = (req, res) => {
+    crud.edit(req, res);
+}
+
+exports.update = (req, res) => {
+    crud.update(req, res);
+}
+
+exports.delete = (req, res) => {
+    crud.delete(req, res);
+}
+
+exports.view = (req, res) => {
+    crud.view(req, res);
+}
+
+exports.logout = (req, res) => {
+    res.clearCookie('jwt');
+    res.redirect('/');
 }
 
 exports.profile = (req, res) => {
@@ -165,5 +146,5 @@ exports.profile = (req, res) => {
         });
     }
 
-    insert(req, res);
+    crud.create(req, res);
 }

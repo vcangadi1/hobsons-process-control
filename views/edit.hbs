@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>Hobsons Brewery - Award-winning Shropshire Beers</title>
+</head>
+<body>
+    <nav>
+        <a href="/"><img class="logo ls-is-cached lazyloaded" src="https://www.hobsons-brewery.co.uk/wp-content/themes/hobsons/assets/images/svg/header-logo.svg" alt="Hobsons Brewery" data-src="https://www.hobsons-brewery.co.uk/wp-content/themes/hobsons/assets/images/svg/header-logo.svg" decoding="async"><noscript><img class="logo" src="https://www.hobsons-brewery.co.uk/wp-content/themes/hobsons/assets/images/svg/header-logo.svg" alt="Hobsons Brewery" data-eio="l"></noscript></a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </nav>
+    <div class="container mt-4">
+        {{#if message}}
+            <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
+                 {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{/if}}
+        <div class="row justify-content-center">
+            <div class="col justify-content-center">
+                {{#each data}}
+                <form action="/auth/edit/{{this.id}}" method="post">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="beer">Beer</label>
+                                    <input type="text" class="form-control" value="{{this.beer}}" id="beer" name="beer">
+                                </div>
+                                <div class="col">
+                                    <label for="gyle">Gyle</label>
+                                    <input type="text" value="{{this.gyle}}" class="form-control" id="gyle" name="gyle">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <label for="brewer">Brewer</label>
+                                    <input type="text" class="form-control" value="{{this.brewer}}" id="brewer" name="brewer">
+                                </div>
+                                <div class="col">
+                                    <label for="fv">Fv</label>
+                                    <input type="text" value="{{this.fv}}" class="form-control" id="fv" name="fv">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion accordion-flush mt-4" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <strong>Brewing and Cleaning Record</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="mashIn">Mash In</label>
+                                                    <input type="time" class="form-control" value="{{this.mashIn}}" id="mashIn" name="mashIn">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="copperUp">Copper Up</label>
+                                                    <input type="time" class="form-control" value="{{this.copperUp}}" id="copperUp" name="copperUp">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="mashTemp">Mash Temp in &#8451;</label>
+                                                    <input type="text" value="{{this.mashTemp}}" class="form-control" id="mashTemp" name="mashTemp">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="gravity_after_boil">Gravity After Boil</label>
+                                                    <input type="text" value="{{this.gravity_after_boil}}" class="form-control" id="gravity_after_boil" name="gravity_after_boil">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="setTaps">Set Taps</label>
+                                                    <input type="time" class="form-control" value="{{this.setTaps}}" id="setTaps" name="setTaps">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="dip_after_boil">Dip After Boil in cm</label>
+                                                    <input type="text" value="{{this.dip_after_boil}}" class="form-control" id="dip_after_boil" name="dip_after_boil">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="first_runnings">1st runnings</label>
+                                                    <input type="text" value="{{this.first_runnings}}" class="form-control" id="first_runnings" name="first_runnings">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="dip_in_liquor">Dip in Liquor in cm</label>
+                                                    <input type="text" value="{{this.dip_in_liquor}}" class="form-control" id="dip_in_liquor" name="dip_in_liquor">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="last_runnings">Last runnings</label>
+                                                    <input type="text" value="{{this.last_runnings}}" class="form-control" id="last_runnings" name="last_runnings">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="wort_pH">Wort pH</label>
+                                                    <input type="text" value="{{this.wort_pH}}" class="form-control" id="wort_pH" name="wort_pH">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="collection_dip">Collection dip in cm</label>
+                                                    <input type="text" value="{{this.collection_dip}}" class="form-control" id="collection_dip" name="collection_dip">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <strong>Pre Rack Taste</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="card mt-2">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="issue_no">Issue No </label>
+                                                    <input type="text" value="{{this.issue_no}}" class="form-control" id="issue_no" name="issue_no">
+                                                </div> 
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="card-header justify-content-center">
+                                                    <strong>Pre Brew Checks</strong>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="mashing_liquor"><strong>Mashing Liquor</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Clear and taint free
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="mashing_liquor" id="mashing_liquor1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="mashing_liquor1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="mashing_liquor" id="mashing_liquor2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="mashing_liquor2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_mashing_liquor" name="action_mashing_liquor">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="glass_audit"><strong>Glass Audit</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Refer to checklist
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="glass_audit" id="glass_audit1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="glass_audit1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="glass_audit" id="glass_audit2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="glass_audit2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_glass_audit" name="action_glass_audit">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="card-header justify-content-center">
+                                                    <strong>Mid Brew Checks</strong>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="racking_tank"><strong>Racking Tank</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Cip procedure, Litmus checked
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="racking_tank" id="racking_tank1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="racking_tank1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="racking_tank" id="racking_tank2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="racking_tank2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_racking_tank" name="action_racking_tank">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="fermenter"><strong>Fermenter</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Cip procedure, Litmus checked
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="fermenter" id="fermenter1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="fermenter1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="fermenter" id="fermenter2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="fermenter2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_fermenter" name="action_fermenter">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="auger_grain_chute"><strong>Auger and Grain chute</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Clean and ready to receive grain
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="auger_grain_chute" id="auger_grain_chute1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="auger_grain_chute1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="auger_grain_chute" id="auger_grain_chute2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="auger_grain_chute2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_auger_grain_chute" name="action_auger_grain_chute">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="trailer"><strong>Trailer</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Steamed prior to filling
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="trailer" id="trailer1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="trailer1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="trailer" id="trailer2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="trailer2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_trailer" name="action_trailer">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="premasher"><strong>Pre masher</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Cleaned and re-positioned
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="premasher" id="premasher1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="premasher1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="premasher" id="premasher2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="premasher2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_premasher" name="action_premasher">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="mash_tun_plates"><strong>Mash tun and plates</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Cleaned to required standard
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="mash_tun_plates" id="mash_tun_plates1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="mash_tun_plates1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="mash_tun_plates" id="mash_tun_plates2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="mash_tun_plates2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_mash_tun_plates" name="action_mash_tun_plates">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="card-header justify-content-center">
+                                                    <strong>Mid Brew Checks</strong>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <strong>Copper</strong>
+                                                </div>
+                                                <div class="col">
+                                                    Cip procedure and Litmus check
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="copper" id="copper1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="copper1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="copper" id="copper2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="copper2">No</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_copper" name="action_copper">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="pipes_paraflow"><strong>Pipes/Paraflow</strong></label>
+                                                </div>
+                                                <div class="col">
+                                                    Cip procedure and Litmus check
+                                                </div>
+                                                <div class="col">
+                                                    <div class="btn-group" role="group">
+                                                        <input type="radio" class="btn-check" value="yes" name="pipes_paraflow" id="pipes_paraflow1" autocomplete="off">
+                                                        <label class="btn btn-outline-success" for="pipes_paraflow1">Yes</label>
+
+                                                        <input type="radio" class="btn-check" value="no" name="pipes_paraflow" id="pipes_paraflow2" autocomplete="off">
+                                                        <label class="btn btn-outline-danger" for="pipes_paraflow2">No</label>
+                                                    </div> 
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="action_pipes_paraflow" name="action_pipes_paraflow">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <strong>Fermentation Records</strong>
+                            </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="card mt-2">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="hoursFermentation">Hours</label>
+                                                    <input type="text" class="form-control" value="{{this.hoursFermentation}}" id="hoursFermentation" name="hoursFermentation">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="tempFermentation">Temp in &#8451;</label>
+                                                    <input type="text" class="form-control" value="{{this.tempFermentation}}" id="tempFermentation" name="tempFermentation">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <label for="gravityFermentation">Gravity</label>
+                                                    <input type="text" class="form-control" value="{{this.gravityFermentation}}" id="gravityFermentation" name="gravityFermentation">
+                                                </div>
+                                                <div class="col">
+                                                    <label for="tasteFermentation">Taste</label>
+                                                    <input type="text" class="form-control" value="{{this.tasteFermentation}}" id="tasteFermentation" name="tasteFermentation">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mb-2">
+                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                    </div>
+                </form>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

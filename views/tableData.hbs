@@ -53,9 +53,9 @@
                         <td>{{this.beer}}</td>
                         <td>{{this.fv}}</td>
                         <td class="text-end">
-                            <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
-                            <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i> Edit</a>
-                            <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-trash"></i> Delete</a>
+                            <a href="/auth/view/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
+                            <a href="/auth/edit/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-square"></i> Edit</a>
+                            <a href="/auth/delete/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-trash"></i> Delete</a>
                         </td>
                     </tr>
                 {{/each}}
