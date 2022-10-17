@@ -13,11 +13,14 @@ router.post('/profile', validateToken, authController.profile);
 // Register Page
 router.post('/register', authController.register);
 
-// add Fermentation Data
-router.post('/addFermentationData', authController.addFermentationData);
+// Data
+router.get('/tableData', validateToken, authController.tableData);
 
-// Save data
-router.post('/save', authController.save);
+// Find
+router.post('/find', validateToken, authController.find);
+
+// Add
+router.get('/add', validateToken, authController.add);
 
 module.exports = router;
 

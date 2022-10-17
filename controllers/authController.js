@@ -61,10 +61,17 @@ exports.login = (req, res) => {
             if (isPasswordValid) {
                 const token = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET);
                 res.cookie('jwt', token, { maxAge: 60 * 60 * 24 * 7 * 1000 });
-                res.render('../views/profile', {
-                    message: `Welcome ${user.name}`,
-                    user,
-                    color: 'success'
+
+                db.query(`SELECT id, date, brewer, gyle, beer, fv FROM brew order by datetimeFermentation desc, date desc limit 10;`, (err, data) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.render('../views/tableData', {
+                        message: 'Data retrieved successfully',
+                        data,
+                        color: 'success'
+                    });
                 });
             } else {
                 res.render('../views/login', {
@@ -81,12 +88,45 @@ exports.login = (req, res) => {
     });
 }
 
-exports.addFermentationData = (req, res) => {
-    res.send('Add Fermentation Data');
+exports.tableData = (req, res) => {
+    db.query(`SELECT id, date, brewer, gyle, beer, fv FROM brew order by datetimeFermentation desc, date desc limit 10;`, (err, data) => {
+        if (err) {
+            throw err;
+        }
+
+        res.render('../views/tableData', {
+            message: 'Data retrieved successfully',
+            data,
+            color: 'success'
+        });
+    });
 }
 
-exports.save = (req, res) => {
-    res.send('Save');
+exports.find = (req, res) => {
+    const { search } = req.body;
+
+    db.query(`SELECT * FROM brew WHERE id LIKE '%${search}%' OR date LIKE '%${search}%' OR brewer LIKE '%${search}%' OR gyle LIKE '%${search}%' OR beer LIKE '%${search}%' OR fv LIKE '%${search}%' order by datetimeFermentation desc, date desc LIMIT 10`, (err, data) => {
+        if (err) {
+            throw err;
+        }
+
+        if (data.length > 0) {
+            res.render('../views/tableData', {
+                message: 'Data retrieved successfully',
+                data,
+                color: 'success'
+            });
+        } else {
+            res.render('../views/tableData', {
+                message: 'Data not found',
+                color: 'danger'
+            });
+        }
+    });
+}
+
+exports.add = (req, res) => {
+    res.render('../views/profile', {});
 }
 
 exports.profile = (req, res) => {
