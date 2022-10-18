@@ -77,10 +77,6 @@ exports.login = (req, res) => {
     });
 }
 
-exports.tableData = (req, res) => {
-    crud.read(req, res);
-}
-
 exports.find = (req, res) => {
     crud.read(req, res);
 }
@@ -89,6 +85,7 @@ exports.add = (req, res) => {
     res.render('../views/create');
 }
 
+// Edit & Update
 exports.edit = (req, res) => {
     crud.edit(req, res);
 }
@@ -97,6 +94,7 @@ exports.update = (req, res) => {
     crud.update(req, res);
 }
 
+// Delete Data
 exports.delete = (req, res) => {
     crud.delete(req, res);
 }

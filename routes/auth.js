@@ -4,28 +4,20 @@ const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
-// Login Page
-router.post('/login', authController.login);
-
-// Create Page
-router.post('/create', validateToken, authController.create);
-
-// Register Page
+// Register, Login & Logout Page
 router.post('/register', authController.register);
+router.post('/login', authController.login);
+router.get('/logout', validateToken, authController.logout);
 
-// Data
-router.get('/tableData', validateToken, authController.tableData);
-
-// Find
+// Search Data
 router.post('/find', validateToken, authController.find);
 
-// Add
+// Add & Create Data
 router.get('/add', validateToken, authController.add);
+router.post('/create', validateToken, authController.create);
 
-// Edit
+// Edit & Update Data
 router.get('/edit/:id', validateToken, authController.edit);
-
-// Update
 router.post('/edit/:id', validateToken, authController.update);
 
 // Delete
