@@ -59,6 +59,9 @@ exports.read = (req, res) => {
         }
 
         if (data.length > 0) {
+            data.forEach((item) => {
+                item.date = item.date.toUTCString();
+            });
             res.render('../views/tableData', {
                 message: `${data.length} entries retrieved successfully`,
                 data,
