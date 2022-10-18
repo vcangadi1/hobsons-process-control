@@ -27,27 +27,27 @@
         {{/if}}
         <div class="row justify-content-center">
             <div class="col justify-content-center">
-                <form action="/auth/profile" method="post">
+                <form action="/auth/create" method="post">
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col">
                                     <label for="beer">Beer</label>
-                                    <input type="text" class="form-control" value="{{data.beer}}" id="beer" name="beer">
+                                    <input type="text" class="form-control" id="beer" name="beer">
                                 </div>
                                 <div class="col">
                                     <label for="gyle">Gyle</label>
-                                    <input type="text" value="{{data.gyle}}" class="form-control" id="gyle" name="gyle">
+                                    <input type="text" class="form-control" id="gyle" name="gyle">
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col">
                                     <label for="brewer">Brewer</label>
-                                    <input type="text" class="form-control" value="{{user.name}}" id="brewer" name="brewer">
+                                    <input type="text" class="form-control" id="brewer" name="brewer">
                                 </div>
                                 <div class="col">
                                     <label for="fv">Fv</label>
-                                    <input type="text" value="{{data.fv}}" class="form-control" id="fv" name="fv">
+                                    <input type="text" class="form-control" id="fv" name="fv">
                                 </div>
                             </div>
                         </div>
@@ -76,11 +76,11 @@
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="mashTemp">Mash Temp in &#8451;</label>
-                                                    <input type="text" value="{{data.mashTemp}}" class="form-control" id="mashTemp" name="mashTemp">
+                                                    <input type="text" class="form-control" id="mashTemp" name="mashTemp">
                                                 </div>
                                                 <div class="col">
                                                     <label for="gravity_after_boil">Gravity After Boil</label>
-                                                    <input type="text" value="{{data.gravity_after_boil}}" class="form-control" id="gravity_after_boil" name="gravity_after_boil">
+                                                    <input type="text" class="form-control" id="gravity_after_boil" name="gravity_after_boil">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -90,33 +90,33 @@
                                                 </div>
                                                 <div class="col">
                                                     <label for="dip_after_boil">Dip After Boil in cm</label>
-                                                    <input type="text" value="{{data.dip_after_boil}}" class="form-control" id="dip_after_boil" name="dip_after_boil">
+                                                    <input type="text" class="form-control" id="dip_after_boil" name="dip_after_boil">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="first_runnings">1st runnings</label>
-                                                    <input type="text" value="{{data.first_runnings}}" class="form-control" id="first_runnings" name="first_runnings">
+                                                    <input type="text" class="form-control" id="first_runnings" name="first_runnings">
                                                 </div>
                                                 <div class="col">
                                                     <label for="dip_in_liquor">Dip in Liquor in cm</label>
-                                                    <input type="text" value="{{data.dip_in_liquor}}" class="form-control" id="dip_in_liquor" name="dip_in_liquor">
+                                                    <input type="text" class="form-control" id="dip_in_liquor" name="dip_in_liquor">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="last_runnings">Last runnings</label>
-                                                    <input type="text" value="{{data.last_runnings}}" class="form-control" id="last_runnings" name="last_runnings">
+                                                    <input type="text" class="form-control" id="last_runnings" name="last_runnings">
                                                 </div>
                                                 <div class="col">
                                                     <label for="wort_pH">Wort pH</label>
-                                                    <input type="text" value="{{data.wort_pH}}" class="form-control" id="wort_pH" name="wort_pH">
+                                                    <input type="text" class="form-control" id="wort_pH" name="wort_pH">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="collection_dip">Collection dip in cm</label>
-                                                    <input type="text" value="{{data.collection_dip}}" class="form-control" id="collection_dip" name="collection_dip">
+                                                    <input type="text" class="form-control" id="collection_dip" name="collection_dip">
                                                 </div>
                                             </div>
                                         </div>
@@ -137,7 +137,7 @@
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="issue_no">Issue No </label>
-                                                    <input type="text" value="{{data.issue_no}}" class="form-control" id="issue_no" name="issue_no">
+                                                    <input type="text" class="form-control" id="issue_no" name="issue_no">
                                                 </div> 
                                             </div>
                                             <div class="row mb-2">
@@ -154,11 +154,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="mashing_liquor" id="mashing_liquor1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="mashing_liquor1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="mashing_liquor" id="mashing_liquor2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="mashing_liquor2">No</label>
+                                                        <input class="form-control" list="my_mashing_liquor" name="mashing_liquor" id="mashing_liquor" placeholder="Yes or No">
+                                                        <datalist id="my_mashing_liquor">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -174,11 +174,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="glass_audit" id="glass_audit1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="glass_audit1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="glass_audit" id="glass_audit2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="glass_audit2">No</label>
+                                                        <input class="form-control" list="my_glass_audit" name="glass_audit" id="glass_audit" placeholder="Yes or No">
+                                                        <datalist id="my_glass_audit">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -199,11 +199,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="racking_tank" id="racking_tank1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="racking_tank1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="racking_tank" id="racking_tank2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="racking_tank2">No</label>
+                                                        <input class="form-control" list="my_racking_tank" name="racking_tank" id="racking_tank" placeholder="Yes or No">
+                                                        <datalist id="my_racking_tank">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -219,11 +219,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="fermenter" id="fermenter1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="fermenter1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="fermenter" id="fermenter2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="fermenter2">No</label>
+                                                        <input class="form-control" list="my_fermenter" name="fermenter" id="fermenter" placeholder="Yes or No">
+                                                        <datalist id="my_fermenter">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -239,11 +239,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="auger_grain_chute" id="auger_grain_chute1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="auger_grain_chute1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="auger_grain_chute" id="auger_grain_chute2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="auger_grain_chute2">No</label>
+                                                        <input class="form-control" list="my_auger_grain_chute" name="auger_grain_chute" id="auger_grain_chute" placeholder="Yes or No">
+                                                        <datalist id="my_auger_grain_chute">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -259,11 +259,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="trailer" id="trailer1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="trailer1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="trailer" id="trailer2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="trailer2">No</label>
+                                                        <input class="form-control" list="my_trailer" name="trailer" id="trailer" placeholder="Yes or No">
+                                                        <datalist id="my_trailer">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -279,11 +279,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="premasher" id="premasher1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="premasher1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="premasher" id="premasher2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="premasher2">No</label>
+                                                        <input class="form-control" list="my_premasher" name="premasher" id="premasher" placeholder="Yes or No">
+                                                        <datalist id="my_premasher">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -299,11 +299,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="mash_tun_plates" id="mash_tun_plates1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="mash_tun_plates1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="mash_tun_plates" id="mash_tun_plates2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="mash_tun_plates2">No</label>
+                                                        <input class="form-control" list="my_mash_tun_plates" name="mash_tun_plates" id="mash_tun_plates" placeholder="Yes or No">
+                                                        <datalist id="my_mash_tun_plates">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -324,11 +324,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="copper" id="copper1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="copper1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="copper" id="copper2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="copper2">No</label>
+                                                        <input class="form-control" list="my_copper" name="copper" id="copper" placeholder="Yes or No">
+                                                        <datalist id="my_copper">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
@@ -344,11 +344,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input type="radio" class="btn-check" value="yes" name="pipes_paraflow" id="pipes_paraflow1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="pipes_paraflow1">Yes</label>
-
-                                                        <input type="radio" class="btn-check" value="no" name="pipes_paraflow" id="pipes_paraflow2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="pipes_paraflow2">No</label>
+                                                        <input class="form-control" list="my_pipes_paraflow" name="pipes_paraflow" id="pipes_paraflow" placeholder="Yes or No">
+                                                        <datalist id="my_pipes_paraflow">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div> 
                                                 </div>
                                                 <div class="col">
@@ -373,21 +373,21 @@
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="hoursFermentation">Hours</label>
-                                                    <input type="text" class="form-control" value="{{data.hoursFermentation}}" id="hoursFermentation" name="hoursFermentation">
+                                                    <input type="text" class="form-control" id="hoursFermentation" name="hoursFermentation">
                                                 </div>
                                                 <div class="col">
                                                     <label for="tempFermentation">Temp in &#8451;</label>
-                                                    <input type="text" class="form-control" value="{{data.tempFermentation}}" id="tempFermentation" name="tempFermentation">
+                                                    <input type="text" class="form-control" id="tempFermentation" name="tempFermentation">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col">
                                                     <label for="gravityFermentation">Gravity</label>
-                                                    <input type="text" class="form-control" value="{{data.gravityFermentation}}" id="gravityFermentation" name="gravityFermentation">
+                                                    <input type="text" class="form-control" id="gravityFermentation" name="gravityFermentation">
                                                 </div>
                                                 <div class="col">
                                                     <label for="tasteFermentation">Taste</label>
-                                                    <input type="text" class="form-control" value="{{data.tasteFermentation}}" id="tasteFermentation" name="tasteFermentation">
+                                                    <input type="text" class="form-control" id="tasteFermentation" name="tasteFermentation">
                                                 </div>
                                             </div>
                                         </div>

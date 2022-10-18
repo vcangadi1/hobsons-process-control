@@ -155,15 +155,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="mashing_liquor" id="mashing_liquor1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="mashing_liquor1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="mashing_liquor" id="mashing_liquor2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="mashing_liquor2">No</label>
+                                                        <input readonly class="form-control" list="my_mashing_liquor" value="{{this.mashing_liquor}}" name="mashing_liquor" id="mashing_liquor" placeholder="Yes or No">
+                                                        <datalist id="my_mashing_liquor">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_mashing_liquor" name="action_mashing_liquor">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_mashing_liquor}}" id="action_mashing_liquor" name="action_mashing_liquor">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -175,15 +175,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="glass_audit" id="glass_audit1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="glass_audit1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="glass_audit" id="glass_audit2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="glass_audit2">No</label>
+                                                        <input readonly class="form-control" list="my_glass_audit" value="{{this.glass_audit}}" name="glass_audit" id="glass_audit" placeholder="Yes or No">
+                                                        <datalist id="my_glass_audit">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_glass_audit" name="action_glass_audit">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_glass_audit}}" id="action_glass_audit" name="action_glass_audit">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -200,15 +200,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="racking_tank" id="racking_tank1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="racking_tank1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="racking_tank" id="racking_tank2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="racking_tank2">No</label>
+                                                        <input readonly class="form-control" list="my_racking_tank" value="{{this.racking_tank}}" name="racking_tank" id="racking_tank" placeholder="Yes or No">
+                                                        <datalist id="my_racking_tank">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_racking_tank" name="action_racking_tank">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_racking_tank}}" id="action_racking_tank" name="action_racking_tank">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -220,15 +220,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="fermenter" id="fermenter1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="fermenter1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="fermenter" id="fermenter2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="fermenter2">No</label>
+                                                        <input readonly class="form-control" list="my_fermenter" value="{{this.fermenter}}" name="fermenter" id="fermenter" placeholder="Yes or No">
+                                                        <datalist id="my_fermenter">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_fermenter" name="action_fermenter">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_fermenter}}" id="action_fermenter" name="action_fermenter">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -240,15 +240,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="auger_grain_chute" id="auger_grain_chute1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="auger_grain_chute1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="auger_grain_chute" id="auger_grain_chute2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="auger_grain_chute2">No</label>
+                                                        <input readonly class="form-control" list="my_auger_grain_chute" value="{{this.auger_grain_chute}}" name="auger_grain_chute" id="auger_grain_chute" placeholder="Yes or No">
+                                                        <datalist id="my_auger_grain_chute">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_auger_grain_chute" name="action_auger_grain_chute">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_auger_grain_chute}}" id="action_auger_grain_chute" name="action_auger_grain_chute">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -260,15 +260,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="trailer" id="trailer1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="trailer1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="trailer" id="trailer2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="trailer2">No</label>
+                                                        <input readonly class="form-control" list="my_trailer" value="{{this.trailer}}" name="trailer" id="trailer" placeholder="Yes or No">
+                                                        <datalist id="my_trailer">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_trailer" name="action_trailer">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_trailer}}" id="action_trailer" name="action_trailer">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -280,15 +280,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="premasher" id="premasher1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="premasher1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="premasher" id="premasher2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="premasher2">No</label>
+                                                        <input readonly class="form-control" list="my_premasher" value="{{this.premasher}}" name="premasher" id="premasher" placeholder="Yes or No">
+                                                        <datalist id="my_premasher">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_premasher" name="action_premasher">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_premasher}}" id="action_premasher" name="action_premasher">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -300,15 +300,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="mash_tun_plates" id="mash_tun_plates1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="mash_tun_plates1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="mash_tun_plates" id="mash_tun_plates2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="mash_tun_plates2">No</label>
+                                                        <input readonly class="form-control" list="my_mash_tun_plates" value="{{this.mash_tun_plates}}" name="mash_tun_plates" id="mash_tun_plates" placeholder="Yes or No">
+                                                        <datalist id="my_mash_tun_plates">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_mash_tun_plates" name="action_mash_tun_plates">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_mash_tun_plates}}" id="action_mash_tun_plates" name="action_mash_tun_plates">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -325,15 +325,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="copper" id="copper1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="copper1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="copper" id="copper2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="copper2">No</label>
+                                                        <input readonly class="form-control" list="my_copper" value="{{this.copper}}" name="copper" id="copper" placeholder="Yes or No">
+                                                        <datalist id="my_copper">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_copper" name="action_copper">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_copper}}" id="action_copper" name="action_copper">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -345,15 +345,15 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn-group" role="group">
-                                                        <input readonly type="radio" class="btn-check" value="yes" name="pipes_paraflow" id="pipes_paraflow1" autocomplete="off">
-                                                        <label class="btn btn-outline-success" for="pipes_paraflow1">Yes</label>
-
-                                                        <input readonly type="radio" class="btn-check" value="no" name="pipes_paraflow" id="pipes_paraflow2" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="pipes_paraflow2">No</label>
+                                                        <input readonly class="form-control" list="my_pipes_paraflow" value="{{this.pipes_paraflow}}" name="pipes_paraflow" id="pipes_paraflow" placeholder="Yes or No">
+                                                        <datalist id="my_pipes_paraflow">
+                                                            <option value="Yes">
+                                                            <option value="No">
+                                                        </datalist>
                                                     </div> 
                                                 </div>
                                                 <div class="col">
-                                                    <input readonly type="text" class="form-control" id="action_pipes_paraflow" name="action_pipes_paraflow">
+                                                    <input readonly type="text" class="form-control" value="{{this.action_pipes_paraflow}}" id="action_pipes_paraflow" name="action_pipes_paraflow">
                                                 </div>
                                             </div>
                                         </div>

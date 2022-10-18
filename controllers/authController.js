@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const crud = require('./MySQL_CRUD');
+const crud = require('./crud');
 
 const db = mysql.createConnection({
     host: process.env.HOST,
@@ -86,7 +86,7 @@ exports.find = (req, res) => {
 }
 
 exports.add = (req, res) => {
-    res.render('../views/profile');
+    res.render('../views/create');
 }
 
 exports.edit = (req, res) => {
@@ -110,9 +110,8 @@ exports.logout = (req, res) => {
     res.redirect('/');
 }
 
-exports.profile = (req, res) => {
+exports.create = (req, res) => {
     const data = req.body;
-    console.log(req.body);
 
     if (req.body.brewer === '') {
         return res.render('../views/login', {
@@ -123,7 +122,7 @@ exports.profile = (req, res) => {
     }
 
     if (req.body.beer === '') {
-        return res.render('../views/profile', {
+        return res.render('../views/create', {
             message: 'Please input a valid beer type',
             data,
             color: 'danger'
@@ -131,7 +130,7 @@ exports.profile = (req, res) => {
     }
 
     if (req.body.gyle === '' || req.body.gyle == 0) {
-        return res.render('../views/profile', {
+        return res.render('../views/create', {
             message: 'Please input a valid gyle number',
             data,
             color: 'danger'
@@ -139,7 +138,7 @@ exports.profile = (req, res) => {
     }
 
     if (req.body.fv === '' || req.body.fv === 0) {
-        return res.render('../views/profile', {
+        return res.render('../views/create', {
             message: 'Please input a valid Fv',
             data,
             color: 'danger'

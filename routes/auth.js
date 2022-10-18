@@ -7,8 +7,8 @@ const router = express.Router();
 // Login Page
 router.post('/login', authController.login);
 
-// Profile Page
-router.post('/profile', validateToken, authController.profile);
+// Create Page
+router.post('/create', validateToken, authController.create);
 
 // Register Page
 router.post('/register', authController.register);
