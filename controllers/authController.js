@@ -6,14 +6,19 @@ const crud = require('./crud');
 const db = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,
-    password:  process.env.PASSWORD,
+    password: process.env.PASSWORD,
     database: process.env.DATABASE
 });
 
 exports.register = (req, res) => {
     console.log(req.body);
 
-    const { name, email, password, passwordConfirm } = req.body;
+    const {
+        name,
+        email,
+        password,
+        passwordConfirm
+    } = req.body;
 
     db.query(`SELECT email FROM users WHERE email = '${email}'`, async (err, results) => {
         if (err) {
@@ -47,7 +52,10 @@ exports.register = (req, res) => {
 }
 
 exports.login = (req, res) => {
-    const { email, password } = req.body;
+    const {
+        email,
+        password
+    } = req.body;
 
     db.query(`SELECT * FROM users WHERE email = '${email}'`, (err, results) => {
         if (err) {
@@ -59,8 +67,12 @@ exports.login = (req, res) => {
             const isPasswordValid = bcrypt.compareSync(password, user.password);
 
             if (isPasswordValid) {
-                const token = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET);
-                res.cookie('jwt', token, { maxAge: 60 * 60 * 24 * 7 * 1000 });
+                const token = jwt.sign({
+                    user
+                }, process.env.ACCESS_TOKEN_SECRET);
+                res.cookie('jwt', token, {
+                    maxAge: 60 * 60 * 24 * 7 * 1000
+                });
                 crud.read(req, res);
             } else {
                 res.render('../views/login', {
@@ -97,6 +109,10 @@ exports.update = (req, res) => {
 // Delete Data
 exports.delete = (req, res) => {
     crud.delete(req, res);
+}
+
+exports.fdelete = (req, res) => {
+    crud.fdelete(req, res);
 }
 
 exports.view = (req, res) => {

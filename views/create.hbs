@@ -60,7 +60,7 @@
                                     <strong>Brewing and Cleaning Record</strong>
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" >
                                 <div class="accordion-body">
                                     <div class="card">
                                         <div class="card-body">
@@ -131,7 +131,7 @@
                                     <strong>Pre Rack Taste</strong>
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
                                 <div class="accordion-body">
                                     <div class="card mt-2">
                                         <div class="card-body">
@@ -367,29 +367,40 @@
                                 <strong>Fermentation Records</strong>
                             </button>
                             </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" >
                                 <div class="accordion-body">
                                     <div class="card mt-2">
                                         <div class="card-body">
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <label for="hoursFermentation">Hours</label>
-                                                    <input type="text" class="form-control" id="hoursFermentation" name="hoursFermentation">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="tempFermentation">Temp in &#8451;</label>
-                                                    <input type="text" class="form-control" id="tempFermentation" name="tempFermentation">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <label for="gravityFermentation">Gravity</label>
-                                                    <input type="text" class="form-control" id="gravityFermentation" name="gravityFermentation">
-                                                </div>
-                                                <div class="col">
-                                                    <label for="tasteFermentation">Taste</label>
-                                                    <input type="text" class="form-control" id="tasteFermentation" name="tasteFermentation">
-                                                </div>
+                                            <div class="container">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Datetime</th>
+                                                            <th scope="col">Hours</th>
+                                                            <th scope="col">Temp in &#8451;</th>
+                                                            <th scope="col">Gravity</th>
+                                                            <th scope="col">Taste</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="table-group-divider">
+                                                        {{#each fdata}}
+                                                            <tr>
+                                                                <th scope="row">{{this.date}}</th>
+                                                                <td>{{this.hours}}</td>
+                                                                <td>{{this.temp}}</td>
+                                                                <td>{{this.gravity}}</td>
+                                                                <td>{{this.taste}}</td>
+                                                            </tr>
+                                                        {{/each}}
+                                                            <tr>
+                                                                <th scope="row"><i>now</i></th>
+                                                                <td><input type="text" class="form-control" id="hours" name="hours"></td>
+                                                                <td><input type="text" class="form-control" id="temp" name="temp"></td>
+                                                                <td><input type="text" class="form-control" id="gravity" name="gravity"></td>
+                                                                <td><input type="text" class="form-control" id="taste" name="taste"></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
