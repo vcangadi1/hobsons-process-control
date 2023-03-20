@@ -53,12 +53,6 @@ exports.create = (req, res) => {
         action_pipes_paraflow
     } = req.body;
     const {
-        hoursFermentation,
-        tempFermentation,
-        gravityFermentation,
-        tasteFermentation
-    } = req.body;
-    const {
         temp,
         hours,
         taste,
@@ -87,7 +81,7 @@ exports.create = (req, res) => {
             _this.read(req, res);
         } else {
 
-            let queries = [`INSERT INTO brew (brewer, beer, gyle, date, fv, mashIn, copperUp, mashTemp, gravity_after_boil, setTaps, dip_after_boil, first_runnings, dip_in_liquor, last_runnings, wort_pH, collection_dip, issue_no, action_mashing_liquor, action_glass_audit, action_racking_tank, action_fermenter, action_auger_grain_chute, action_trailer, action_premasher, action_mash_tun_plates, action_copper, action_pipes_paraflow, mashing_liquor, glass_audit, racking_tank, fermenter, auger_grain_chute, trailer, premasher, mash_tun_plates, copper, pipes_paraflow, hoursFermentation, tempFermentation, gravityFermentation, tasteFermentation ) VALUES ( '${brewer}', '${beer}', '${gyle}', '${date}', '${fv}', '${mashIn}', '${copperUp}', '${mashTemp}', '${gravity_after_boil}', '${setTaps}', '${dip_after_boil}', '${first_runnings}', '${dip_in_liquor}', '${last_runnings}', '${wort_pH}', '${collection_dip}', '${issue_no}', '${action_mashing_liquor}', '${action_glass_audit}', '${action_racking_tank}', '${action_fermenter}', '${action_auger_grain_chute}', '${action_trailer}', '${action_premasher}', '${action_mash_tun_plates}', '${action_copper}', '${action_pipes_paraflow}', '${mashing_liquor}', '${glass_audit}', '${racking_tank}', '${fermenter}', '${auger_grain_chute}', '${trailer}', '${premasher}', '${mash_tun_plates}', '${copper}', '${pipes_paraflow}', '${hoursFermentation}', '${tempFermentation}', '${gravityFermentation}', '${tasteFermentation}')`,
+            let queries = [`INSERT INTO brew (brewer, beer, gyle, date, fv, mashIn, copperUp, mashTemp, gravity_after_boil, setTaps, dip_after_boil, first_runnings, dip_in_liquor, last_runnings, wort_pH, collection_dip, issue_no, action_mashing_liquor, action_glass_audit, action_racking_tank, action_fermenter, action_auger_grain_chute, action_trailer, action_premasher, action_mash_tun_plates, action_copper, action_pipes_paraflow, mashing_liquor, glass_audit, racking_tank, fermenter, auger_grain_chute, trailer, premasher, mash_tun_plates, copper, pipes_paraflow ) VALUES ( '${brewer}', '${beer}', '${gyle}', '${date}', '${fv}', '${mashIn}', '${copperUp}', '${mashTemp}', '${gravity_after_boil}', '${setTaps}', '${dip_after_boil}', '${first_runnings}', '${dip_in_liquor}', '${last_runnings}', '${wort_pH}', '${collection_dip}', '${issue_no}', '${action_mashing_liquor}', '${action_glass_audit}', '${action_racking_tank}', '${action_fermenter}', '${action_auger_grain_chute}', '${action_trailer}', '${action_premasher}', '${action_mash_tun_plates}', '${action_copper}', '${action_pipes_paraflow}', '${mashing_liquor}', '${glass_audit}', '${racking_tank}', '${fermenter}', '${auger_grain_chute}', '${trailer}', '${premasher}', '${mash_tun_plates}', '${copper}', '${pipes_paraflow}')`,
                 `INSERT INTO fermentation_records (gyle, date, hours, temp, gravity, taste ) VALUES ( '${gyle}', '${date}', '${hours}', '${temp}', '${gravity}', '${taste}')`
             ];
 
@@ -153,8 +147,6 @@ exports.edit = (req, res) => {
         }
         if (data.length > 0) {
             db.query(`SELECT * FROM fermentation_records WHERE gyle=${gyle}`, (err, fdata) => {
-                let result = Object.values(JSON.parse(JSON.stringify(fdata)));
-                console.log(result);
                 res.render('../views/edit', {
                     message: `Edit Gyle ${gyle}`,
                     data,
@@ -216,12 +208,6 @@ exports.update = (req, res) => {
         action_pipes_paraflow
     } = req.body;
     const {
-        hoursFermentation,
-        tempFermentation,
-        gravityFermentation,
-        tasteFermentation
-    } = req.body;
-    const {
         hours,
         temp,
         gravity,
@@ -234,11 +220,12 @@ exports.update = (req, res) => {
     const date = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
 
     // Insert into brew table
-    db.query(`UPDATE brew SET brewer='${brewer}', beer='${beer}', gyle='${gyle}', date='${date}', fv='${fv}', mashIn='${mashIn}', copperUp='${copperUp}', mashTemp='${mashTemp}', gravity_after_boil='${gravity_after_boil}', setTaps='${setTaps}', dip_after_boil='${dip_after_boil}', first_runnings='${first_runnings}', dip_in_liquor='${dip_in_liquor}', last_runnings='${last_runnings}', wort_pH='${wort_pH}', collection_dip='${collection_dip}', issue_no='${issue_no}', mashing_liquor='${mashing_liquor}', action_mashing_liquor='${action_mashing_liquor}', glass_audit='${glass_audit}', action_glass_audit='${action_glass_audit}', racking_tank='${racking_tank}', action_racking_tank='${action_racking_tank}', fermenter='${fermenter}', action_fermenter='${action_fermenter}', auger_grain_chute='${auger_grain_chute}', action_auger_grain_chute='${action_auger_grain_chute}', trailer='${trailer}', action_trailer='${action_trailer}', premasher='${premasher}', action_premasher='${action_premasher}', mash_tun_plates='${mash_tun_plates}', action_mash_tun_plates='${action_mash_tun_plates}', copper='${copper}', action_copper='${action_copper}', pipes_paraflow='${pipes_paraflow}', action_pipes_paraflow='${action_pipes_paraflow}', hoursFermentation='${hoursFermentation}', tempFermentation='${tempFermentation}', gravityFermentation='${gravityFermentation}', tasteFermentation='${tasteFermentation}' WHERE gyle=${gyle}`, (err, results) => {
+    db.query(`UPDATE brew SET brewer='${brewer}', beer='${beer}', gyle='${gyle}', date='${date}', fv='${fv}', mashIn='${mashIn}', copperUp='${copperUp}', mashTemp='${mashTemp}', gravity_after_boil='${gravity_after_boil}', setTaps='${setTaps}', dip_after_boil='${dip_after_boil}', first_runnings='${first_runnings}', dip_in_liquor='${dip_in_liquor}', last_runnings='${last_runnings}', wort_pH='${wort_pH}', collection_dip='${collection_dip}', issue_no='${issue_no}', mashing_liquor='${mashing_liquor}', action_mashing_liquor='${action_mashing_liquor}', glass_audit='${glass_audit}', action_glass_audit='${action_glass_audit}', racking_tank='${racking_tank}', action_racking_tank='${action_racking_tank}', fermenter='${fermenter}', action_fermenter='${action_fermenter}', auger_grain_chute='${auger_grain_chute}', action_auger_grain_chute='${action_auger_grain_chute}', trailer='${trailer}', action_trailer='${action_trailer}', premasher='${premasher}', action_premasher='${action_premasher}', mash_tun_plates='${mash_tun_plates}', action_mash_tun_plates='${action_mash_tun_plates}', copper='${copper}', action_copper='${action_copper}', pipes_paraflow='${pipes_paraflow}', action_pipes_paraflow='${action_pipes_paraflow}' WHERE gyle=${gyle}`, (err, results) => {
         if (err) {
             throw err;
         }
-        if (hours !== '') {
+        if (hours.length !== 0) {
+            console.log(hours);
             db.query(`INSERT INTO fermentation_records(gyle, date, hours, temp, gravity, taste) VALUES('${gyle}', '${date}', '${hours}', '${temp}', '${gravity}', '${taste}')`, (err, results) => {
                 if (err) {
                     throw err;
