@@ -382,7 +382,7 @@
                                                             <th scope="col">Temp in &#8451;</th>
                                                             <th scope="col">Gravity</th>
                                                             <th scope="col">Taste</th>
-                                                            <th scope="col" class="text-end">Action</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody class="table-group-divider">
@@ -393,13 +393,7 @@
                                                                 <td>{{this.temp}}</td>
                                                                 <td>{{this.gravity}}</td>
                                                                 <td>{{this.taste}}</td>
-                                                                <td class="text-end">
-                                                                    <a
-                                                                    href="/auth/fdelete/{{this.gyle}}/{{this.id}}"
-                                                                    type="button"
-                                                                    class="btn btn-light btn-small"
-                                                                    ><i class="bi bi-trash"></i></a>
-                                                                </td>
+                                                                <td>{{this.action}}</td>
                                                             </tr>
                                                         {{/each}}
                                                             <tr>
@@ -408,6 +402,7 @@
                                                                 <td><input type="text" class="form-control" id="temp" name="temp"></td>
                                                                 <td><input type="text" class="form-control" id="gravity" name="gravity"></td>
                                                                 <td><input type="text" class="form-control" id="taste" name="taste"></td>
+                                                                <td><input type="text" class="form-control" id="action" name="action"></td>
                                                             </tr>
                                                     </tbody>
                                                 </table>

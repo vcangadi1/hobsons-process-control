@@ -308,7 +308,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col">
-                                                    <input type="text" class="form-control" id="action_mash_tun_plates" name="action_mash_tun_plates">
+                                                    <input type="text" class="form-control" id="action_mash_tun_plates" name="action_mash_tun_plates" value="Monthly pH=">
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -380,6 +380,7 @@
                                                             <th scope="col">Temp in &#8451;</th>
                                                             <th scope="col">Gravity</th>
                                                             <th scope="col">Taste</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody class="table-group-divider">
@@ -390,6 +391,7 @@
                                                                 <td>{{this.temp}}</td>
                                                                 <td>{{this.gravity}}</td>
                                                                 <td>{{this.taste}}</td>
+                                                                <td>{{this.action}}</td>
                                                             </tr>
                                                         {{/each}}
                                                             <tr>
@@ -398,6 +400,7 @@
                                                                 <td><input type="text" class="form-control" id="temp" name="temp"></td>
                                                                 <td><input type="text" class="form-control" id="gravity" name="gravity"></td>
                                                                 <td><input type="text" class="form-control" id="taste" name="taste"></td>
+                                                                <td><input type="text" class="form-control" id="action" name="action"></td>
                                                             </tr>
                                                     </tbody>
                                                 </table>

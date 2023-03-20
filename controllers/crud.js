@@ -56,7 +56,8 @@ exports.create = (req, res) => {
         temp,
         hours,
         taste,
-        gravity
+        gravity,
+        action
     } = req.body;
 
 
@@ -82,17 +83,29 @@ exports.create = (req, res) => {
         } else {
 
             let queries = [`INSERT INTO brew (brewer, beer, gyle, date, fv, mashIn, copperUp, mashTemp, gravity_after_boil, setTaps, dip_after_boil, first_runnings, dip_in_liquor, last_runnings, wort_pH, collection_dip, issue_no, action_mashing_liquor, action_glass_audit, action_racking_tank, action_fermenter, action_auger_grain_chute, action_trailer, action_premasher, action_mash_tun_plates, action_copper, action_pipes_paraflow, mashing_liquor, glass_audit, racking_tank, fermenter, auger_grain_chute, trailer, premasher, mash_tun_plates, copper, pipes_paraflow ) VALUES ( '${brewer}', '${beer}', '${gyle}', '${date}', '${fv}', '${mashIn}', '${copperUp}', '${mashTemp}', '${gravity_after_boil}', '${setTaps}', '${dip_after_boil}', '${first_runnings}', '${dip_in_liquor}', '${last_runnings}', '${wort_pH}', '${collection_dip}', '${issue_no}', '${action_mashing_liquor}', '${action_glass_audit}', '${action_racking_tank}', '${action_fermenter}', '${action_auger_grain_chute}', '${action_trailer}', '${action_premasher}', '${action_mash_tun_plates}', '${action_copper}', '${action_pipes_paraflow}', '${mashing_liquor}', '${glass_audit}', '${racking_tank}', '${fermenter}', '${auger_grain_chute}', '${trailer}', '${premasher}', '${mash_tun_plates}', '${copper}', '${pipes_paraflow}')`,
-                `INSERT INTO fermentation_records (gyle, date, hours, temp, gravity, taste ) VALUES ( '${gyle}', '${date}', '${hours}', '${temp}', '${gravity}', '${taste}')`
+                `INSERT INTO fermentation_records (gyle, date, hours, temp, gravity, taste, action ) VALUES ( '${gyle}', '${date}', '${hours}', '${temp}', '${gravity}', '${taste}', '${action}')`
             ];
-
+            let count = 0;
             try {
                 queries.forEach(query => {
-                    // Insert into brew table            
-                    db.query(query, (err, results) => {
-                        if (err) {
-                            throw err;
+                    if (count === 0) {
+                        count = count + 1;
+                        // Insert into brew table            
+                        db.query(query, (err, results) => {
+                            if (err) {
+                                throw err;
+                            }
+                        });
+                    } else {
+                        if (hours.length !== 0) {
+                            // Insert into brew table            
+                            db.query(query, (err, results) => {
+                                if (err) {
+                                    throw err;
+                                }
+                            });
                         }
-                    });
+                    }
                 });
             } catch (error) {
 
@@ -211,7 +224,8 @@ exports.update = (req, res) => {
         hours,
         temp,
         gravity,
-        taste
+        taste,
+        action
     } = req.body;
 
     console.log(req.body);
@@ -226,7 +240,7 @@ exports.update = (req, res) => {
         }
         if (hours.length !== 0) {
             console.log(hours);
-            db.query(`INSERT INTO fermentation_records(gyle, date, hours, temp, gravity, taste) VALUES('${gyle}', '${date}', '${hours}', '${temp}', '${gravity}', '${taste}')`, (err, results) => {
+            db.query(`INSERT INTO fermentation_records(gyle, date, hours, temp, gravity, taste, action) VALUES('${gyle}', '${date}', '${hours}', '${temp}', '${gravity}', '${taste}', '${action}')`, (err, results) => {
                 if (err) {
                     throw err;
                 }

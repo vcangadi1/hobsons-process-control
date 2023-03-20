@@ -5,7 +5,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const hbs = require('hbs');
 
-dotenv.config({ path: path.join(__dirname, '/.env') });
+dotenv.config({
+    path: path.join(__dirname, '/.env')
+});
 const port = process.env.PORT;
 const ip = process.env.IP;
 
@@ -14,7 +16,7 @@ const app = express();
 const db = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,
-    password:  process.env.PASSWORD,
+    password: process.env.PASSWORD,
     database: process.env.DATABASE
 });
 
@@ -22,7 +24,9 @@ const publicPath = path.join(__dirname, '/public');
 app.use(express.static(publicPath));
 
 // Parse URL encoded request bodies (as sent by HTML forms)
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+    extended: false
+}));
 // Parse JSON request bodies (as sent by API clients)
 app.use(express.json());
 // Parse cookies
